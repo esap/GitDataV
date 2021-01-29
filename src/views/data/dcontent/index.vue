@@ -4,7 +4,7 @@
       <div class="left">
         <dnumber
           :dheight="110"
-          :title="$t('data.myevent.pubRepos')"
+          title="allEmp"
           :size="'4rem'"
           :dnumber="numberData.pubRepos"
           :icon="'kucunguanli'"

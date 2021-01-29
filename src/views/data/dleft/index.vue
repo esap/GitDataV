@@ -4,12 +4,12 @@
       <databox :title="''" :dheight="720">
         <personal :personalData="personalData" :username="username"></personal>
         <databox
-          :title="$t('data.dleft.accountStars')"
+          title="kucun"
           :dheight="280"
           :icon="'account'"
           :boxb="false"
         >
-          <ve-pie :data="starData" :extend="extend" :height="'250px'"></ve-pie>
+          <ve-pie :data="SDData" :extend="extend" :height="'250px'"></ve-pie>
           <nodata
             :nodata="$t('data.dleft.noStarData')"
             v-if="noStarData"
@@ -67,6 +67,10 @@ export default {
         columns: ["reposName", "getStars"],
         rows: []
       },
+      SDData: {
+        columns: ["类型", "Qty"],
+        rows: []
+      },
       noStarData: false,
       languageData: {
         columns: ["lang", "number"],
@@ -75,11 +79,25 @@ export default {
       nolanguageData: false
     };
   },
-  created() {},
+  created() {
+    this.getData2();
+  },
   methods: {
+    getData2() {
+      this.$axios
+        .get("http://fb.erp8.net:9090/api6/iQtyGroup")
+        .then(response => {
+          this.SDData.columns=response.data.data.columns.map(v => v.id);
+          this.SDData.rows=response.data.data.rows;
+          console.log(this.SDData)
+        })
+        .catch(err => {
+          console.log(err.message);
+        });
+    },
     getData(username) {
       this.$axios
-        .get("/api/users/" + username + "/repos")
+        .get("http://http://fb.erp8.net:9090/api6/prodQtyCmp")
         .then(response => {
           let data = JSON.parse(JSON.stringify(response.data));
           if (data.length < 1) {

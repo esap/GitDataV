@@ -7,11 +7,11 @@
         </div>
       </div>
       <div class="right">
-        <div class="name">{{ personalData.username }}</div>
+        <div class="name">Fullwin</div>
 
         <div class="year">
-          <a class="date">{{ personalData.joinDate }}</a>
-          <a class="time">加入github</a>
+          <a class="date">2021</a>
+          <a class="time">Loading...</a>
         </div>
       </div>
     </div>

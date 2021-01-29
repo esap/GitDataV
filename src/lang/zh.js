@@ -43,7 +43,7 @@ export default {
         remarks: "备注"
       }
     },
-    dheader: "GitDataV数据平台",
+    dheader: "信息数据平台",
     dleft: {
       accountStars: "仓库Stars详情",
       accountLeng: "仓库语言分类",
